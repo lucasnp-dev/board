@@ -94,7 +94,7 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
 Ensure you have the appropriate access rights to clone this private repository.
 
 ```bash
-git clone https://github.com
+git clone https://github.com/lucasnp-dev/board.git
 ```
 
 ### Install dependencies
