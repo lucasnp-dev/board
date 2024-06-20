@@ -1,81 +1,148 @@
-# Turborepo starter
+# Board
 
-This is an official starter Turborepo.
+## Overview
+Board is a SaaS RBCA platform that helps manage various parts of a meeting effectively.
 
-## Using this example
+## Functional Requirements
 
-Run the following command:
+1. **User Management**
+   - The system should allow the user to sign up.
+   - The system should allow the user to delete and edit a user.
+   - The system should allow a user to have a name, email, cell phone number, picture, and member.
 
-```sh
-npx create-turbo@latest
+2. **Member Management**
+   - The system should allow the user to create, edit, and delete a member.
+   - The system should allow a member to have a role, name, designation, organization, and user.
+
+3. **Meeting Management**
+   - The system should allow the user to read a meeting.
+   - The system should allow the user to create, edit, and delete a meeting.
+   - The system should allow a meeting to have a date and description.
+
+4. **Section Management**
+   - The system should allow each meeting to have multiple sections.
+   - The system should allow a section to have a description.
+
+5. **Part Management**
+   - The system should allow each section to have multiple parts.
+   - The system should allow a part to have a description.
+   - The system should allow selecting which designations can perform those parts.
+
+6. **Organization Management**
+   - The system should allow the user to create, update, and delete an organization.
+   - The system should allow an organization to have a name, picture, and domain.
+
+7. **To Be Defined**
+   - Language support (pt-BR, ES).
+
+## Non-Functional Requirements
+
+1. **Database**
+   - MySQL | PostgreSQL _(to be defined)_;
+   - Cloud: Hostinger | Hostgator | Vercel _(to be defined)_;
+   - ORM: Prisma.
+
+2. **Project Setup**
+   - Cloud: Vercel.
+   - Turbopack Monorepo.
+
+3. **Security**
+   - If there is a password, it must be encrypted.
+
+## Business Rules
+
+1. **User**
+   - If there is a member with your name, the user can sign up.
+   - The user can delete, create, read, or update a user if their role is admin or dev.
+   - The user can delete, create, read, or update their own user.
+   - Name and member fields are required.
+
+2. **Member**
+   - The user can update, delete, or create a member if their role is admin or dev.
+   - The user can create, read, update, or delete their own member.
+   - Organization, designation, and role fields are required.
+   - Name is required if user field is empty.
+
+3. **Meeting**
+   - The user can create, read, update, or delete a meeting if their role is admin or dev.
+   - Date and description fields are required.
+   - Sections are required in all meetings.
+
+4. **Section**
+   - The user can create, read, update, or delete a section if their role is admin or dev.
+   - Description field is required.
+   - Parts are required in all sections.
+
+5. **Part**
+   - The user can create, read, update, or delete a part if their role is admin or dev.
+   - Description field is required.
+
+6. **Organization**
+   - The user can create an organization.
+   - Name is required.
+   - Domain is composed of a name.
+
+## Installation and Conlfiguration
+
+### Prerequisites
+ - Node.js(>=18.x)
+ - npm or pnpm
+- A MySQL or PostgreSQL database
+
+### Clone the repository
+
+Ensure you have the appropriate access rights to clone this private repository.
+
+```bash
+git clone https://github.com
 ```
 
-## What's inside?
+### Install dependencies
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+npm install
+# or
+pnpm install
 ```
 
-### Develop
+### Environment setup
 
-To develop all apps and packages, run the following command:
+Create a `.env` file in the root of the project with the following variables:
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```plaintext
+DATABASE_URL=url
+JWT_SECRET=secret
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Start the development server
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
+```bash
+npm run dev
+# or
+pnpm run dev
 ```
-npx turbo link
-```
 
-## Useful Links
+## Contribution
 
-Learn more about the power of Turborepo:
+## Access Control
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+This project is private. Ensure you have the necessary permissions to access and contribute to the repository. Contact the repository owner for access.
+
+## Branching Strategy
+ - main: The production branch.
+ - dev: The development branch. Merge your feature branches here.
+ - feature/your-feature: Feature branches for new features or bug fixes.
+
+## Code Review
+All changes should be submitted via pull requests. Ensure your code is reviewed and approved by at least one other team member before merging.
+
+## Security
+
+### Data Protection
+Ensure all sensitive data is stored securely and encrypted where applicable.
+
+## Access Control
+Limit access to the repository to authorized team members only. Regularly review and update access permissions.
+
+## License
+This project is licensed under the MIT License.
