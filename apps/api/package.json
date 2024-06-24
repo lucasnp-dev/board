@@ -4,5 +4,11 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
+    "@board/eslint-config": "workspace:*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@board/eslint-config/library"
+    ]
   }
 }

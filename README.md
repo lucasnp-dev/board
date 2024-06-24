@@ -32,14 +32,18 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
    - The system should allow the user to create, update, and delete an organization.
    - The system should allow an organization to have a name, picture, and domain.
 
-7. **To Be Defined**
+7. **Appartment**
+   - The system should allow the user to create, update, and delete a appartment.
+   - The system should allow an appartment to have a Part and Member.
+
+8. **To Be Defined**
    - Language support (pt-BR, ES).
 
 ## Non-Functional Requirements
 
 1. **Database**
-   - MySQL | PostgreSQL _(to be defined)_;
-   - Cloud: Hostinger | Hostgator | Vercel _(to be defined)_;
+   - PostgreSQL;
+   - Cloud: Vercel;
    - ORM: Prisma.
 
 2. **Project Setup**
@@ -79,15 +83,20 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
 
 6. **Organization**
    - The user can create an organization.
+   - The user can update and delete and organization their own member.
    - Name is required.
    - Domain is composed of a name.
 
-## Installation and Conlfiguration
+7. **Appartment**
+   - The user can create, read, update, or delete a appartment if their role is dev, admin, or member.
+   - The Part and Member fields is required.
+
+## Installation and Configuration
 
 ### Prerequisites
  - Node.js(>=18.x)
  - npm or pnpm
-- A MySQL or PostgreSQL database
+- A PostgreSQL database
 
 ### Clone the repository
 
