@@ -19,25 +19,22 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
    - The system should allow the user to create, edit, and delete a meeting.
    - The system should allow a meeting to have a date and description.
 
-4. **Section Management**
-   - The system should allow each meeting to have multiple sections.
-   - The system should allow a section to have a description.
+4. **Item Management**
+   - The system should allow each meeting to have multiple items.
+   - The system should allow item ordering.
+   - The system should allow a item have a type, this field is enum.
+   - The system should allow a item have a description, meeting_id, and parent_id.
 
-5. **Part Management**
-   - The system should allow each section to have multiple parts.
-   - The system should allow a part to have a description.
-   - The system should allow selecting which designations can perform those parts.
-
-6. **Organization Management**
+5. **Organization Management**
    - The system should allow the user to create, update, and delete an organization.
    - The system should allow an organization to have a name, picture, and domain.
 
-7. **Appartment**
-   - The system should allow the user to create, update, and delete a appartment.
-   - The system should allow an appartment to have a Part and Member.
+6. **Part**
+   - The system should allow the user to create, update, and delete a part.
+   - The system should allow an appartment to have a Item and Member.
 
-8. **To Be Defined**
-   - Language support (pt-BR, ES).
+7. **To Be Defined**
+   - Language support (pt-BR, en-US).
 
 ## Non-Functional Requirements
 
@@ -72,24 +69,23 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
    - Date and description fields are required.
    - Sections are required in all meetings.
 
-4. **Section**
-   - The user can create, read, update, or delete a section if their role is admin or dev.
+4. **Item**
+   - The user can create, read, update, or delete a item if their role is admin or dev.
    - Description field is required.
-   - Parts are required in all sections.
+   - It can be a SECTION, PART or SHARED.
+   - SECTION must had a childrens.
+   - PART must have a parent.
+   - SHARED can be both and not had a member.
 
-5. **Part**
-   - The user can create, read, update, or delete a part if their role is admin or dev.
-   - Description field is required.
-
-6. **Organization**
+5. **Organization**
    - The user can create an organization.
    - The user can update and delete and organization their own member.
    - Name is required.
    - Domain is composed of a name.
 
-7. **Appartment**
+6. **Part**
    - The user can create, read, update, or delete a appartment if their role is dev, admin, or member.
-   - The Part and Member fields is required.
+   - The Item and Member fields is required.
 
 ## Installation and Configuration
 
