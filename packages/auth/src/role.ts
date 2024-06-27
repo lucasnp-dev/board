@@ -1,6 +1,7 @@
 import z from 'zod'
 
 const roleSchema = z.union([
+  z.literal('dev'),
   z.literal('admin'), // manage all
   z.literal('manager'), // manage mettings and others designations
   z.literal('editor'), // manage designations
