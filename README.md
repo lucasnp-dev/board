@@ -68,6 +68,7 @@ Board is a SaaS RBCA platform that helps manage various parts of a meeting effec
    - The user can create, read, update, or delete a meeting if their role is admin or dev.
    - Date and description fields are required.
    - Sections are required in all meetings.
+   - The meeting can be type meeting, ministery, or cart.
 
 4. **Item**
    - The user can create, read, update, or delete a item if their role is admin or dev.
