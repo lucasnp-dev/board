@@ -13,6 +13,7 @@ import { memberSubject } from './subjects/member'
 import { meetingSubject } from './subjects/metting'
 import { organizationSubject } from './subjects/organization'
 import { partSubject } from './subjects/part'
+import { userSubject } from './subjects/user'
 
 const appAbilitiesSchema = z.union([
   meetingSubject,
@@ -20,6 +21,7 @@ const appAbilitiesSchema = z.union([
   partSubject,
   memberSubject,
   organizationSubject,
+  userSubject,
   z.tuple([z.literal('manage'), z.literal('all')]),
 ])
 
