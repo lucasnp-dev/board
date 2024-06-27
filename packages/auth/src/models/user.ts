@@ -1,12 +1,13 @@
 import { z } from 'zod'
 
 import { roleSchema } from '../role'
-import { organizationSchema } from './organization'
+import { memberSchema } from './member'
 
 const userSchema = z.object({
+  __typename: z.literal('User').default('User'),
   id: z.string(),
   role: roleSchema,
-  organization: organizationSchema,
+  member: memberSchema,
 })
 
 type User = z.infer<typeof userSchema>

@@ -18,45 +18,59 @@ export const permissions: Record<Role, PermissionsByRole> = {
 
     cannot('manage', ['Item', 'Meeting', 'Part', 'Member', 'Organization'])
     can('manage', ['Item', 'Meeting', 'Part', 'Member'], {
-      organizationId: { $eq: user.organization.id },
+      organizationId: { $eq: user.member.organizationId },
     })
 
     can('manage', 'Organization', {
-      id: { $eq: user.organization.id },
+      id: { $eq: user.member.organizationId },
+    })
+
+    cannot('manage', 'User')
+    can('manage', 'User', {
+      id: { $eq: user.id },
     })
   },
   manager(user, { can, cannot }) {
     cannot('manage', ['Item', 'Meeting', 'Part'])
     can('manage', ['Item', 'Meeting', 'Part'], {
-      organizationId: { $eq: user.organization.id },
+      organizationId: { $eq: user.member.organizationId },
     })
 
-    cannot('manage', 'Member')
+    cannot('manage', ['User', 'Member'])
     can('read', 'Member', {
       userId: { $eq: user.id },
+    })
+    can('manage', 'User', {
+      id: { $eq: user.id },
     })
   },
   editor(user, { can, cannot }) {
     cannot('manage', ['Item', 'Meeting', 'Part'])
     can('manage', ['Item', 'Part'], {
-      organizationId: { $eq: user.organization.id },
+      organizationId: { $eq: user.member.organizationId },
     })
 
     can('manage', 'Meeting', {
-      organizationId: { $eq: user.organization.id },
+      organizationId: { $eq: user.member.organizationId },
       type: { $ne: 'meeting' },
     })
 
-    cannot('manage', 'Member')
+    cannot('manage', ['User', 'Member'])
     can('read', 'Member', {
       userId: { $eq: user.id },
+    })
+    can('manage', 'User', {
+      id: { $eq: user.id },
     })
   },
   user(user, { can, cannot }) {
     can('read', 'Meeting')
-    cannot('manage', 'Member')
+    cannot('manage', ['User', 'Member'])
     can('read', 'Member', {
       userId: { $eq: user.id },
+    })
+    can('manage', 'User', {
+      id: { $eq: user.id },
     })
   },
 }
